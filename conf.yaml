@@ -1,0 +1,25 @@
+panel:
+  radius: 118
+  arc: 58
+  depth: 50
+
+leds:
+  brightness:
+    default: 0.4
+
+panels:
+  - hue: 1.0
+    angle: 270
+    leds: [12, 1]
+  - hue: 0.1
+    angle: 330
+    leds: [2, 3]
+  - hue: 0.3
+    angle: 30
+    leds: [4, 5]
+  - hue: 0.66
+    angle: 90
+    leds: [6, 7]
+  - hue: 0.8
+    angle: 150
+    leds: [8, 9]

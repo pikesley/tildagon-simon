@@ -1,0 +1,54 @@
+{
+  "leds": {
+    "brightness": {
+      "default": 0.4
+    }
+  },
+  "panel": {
+    "arc": 58,
+    "depth": 50,
+    "radius": 118
+  },
+  "panels": [
+    {
+      "angle": 270,
+      "hue": 1.0,
+      "leds": [
+        12,
+        1
+      ]
+    },
+    {
+      "angle": 330,
+      "hue": 0.1,
+      "leds": [
+        2,
+        3
+      ]
+    },
+    {
+      "angle": 30,
+      "hue": 0.3,
+      "leds": [
+        4,
+        5
+      ]
+    },
+    {
+      "angle": 90,
+      "hue": 0.66,
+      "leds": [
+        6,
+        7
+      ]
+    },
+    {
+      "angle": 150,
+      "hue": 0.8,
+      "leds": [
+        8,
+        9
+      ]
+    }
+  ]
+}
