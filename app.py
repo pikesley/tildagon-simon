@@ -13,6 +13,7 @@ from .lib.conf import conf
 from .lib.panel import Panel
 from .lib.scoreboard import Scoreboard
 
+from .lib.high_score_manager import load_high_score, save_high_score
 
 class Simon(app.App):
     """Simon."""
@@ -30,6 +31,7 @@ class Simon(app.App):
     def new_game(self):
         """Clean up ready."""
         self.score = 0
+        self.high_score = load_high_score()
         self.scoreboard = Scoreboard()
         self.reset()
 
@@ -66,10 +68,11 @@ class Simon(app.App):
         if len(self.guessed_sequence) == len(self.sequence):
             if self.guessed_sequence == self.sequence:
                 self.score += len(self.sequence)
-                self.score += len(self.sequence)
-                print(self.score)
+                self.high_score = max(self.score, self.high_score)
+
                 self.reset()
             else:
+                save_high_score(self.high_score)
                 self.restart_timer = ticks_ms()
                 self.dialog = YesNoDialog(
                     message="Play Again?",
@@ -122,6 +125,7 @@ class Simon(app.App):
 
         if self.scoreboard.scores["score"] < self.score:
             self.scoreboard.scores["score"] += 1
+        self.scoreboard.scores["high-score"] = self.high_score
         self.overlays.append(self.scoreboard)
 
         self.draw_overlays(ctx)

@@ -14,3 +14,14 @@ class Scoreboard:
         ctx.text_baseline = ctx.MIDDLE
         ctx.font_size = 60
         ctx.text(str(self.scores["score"]))
+
+
+        ctx.move_to(-75, -55)
+        ctx.text_baseline = ctx.BOTTOM
+        ctx.font_size = 10
+        ctx.text("high score")
+
+        ctx.move_to(-75, -50)
+        ctx.text_baseline = ctx.TOP
+        ctx.font_size = 40
+        ctx.text(str(self.scores["high-score"]))
