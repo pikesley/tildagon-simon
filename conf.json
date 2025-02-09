@@ -1,4 +1,5 @@
 {
+  "increase-length-after": 4,
   "leds": {
     "brightness": {
       "active": 0.6,

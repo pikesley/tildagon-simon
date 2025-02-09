@@ -12,6 +12,8 @@ panel:
 
 pause-time: 300  # general pause
 
+increase-length-after: 4
+
 scoreboard:
   font-size: 60
 

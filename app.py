@@ -10,10 +10,11 @@ import app
 
 from .lib.background import Background
 from .lib.conf import conf
+from .lib.high_score_manager import load_high_score, save_high_score
 from .lib.panel import Panel
 from .lib.scoreboard import Scoreboard
+from .lib.sequence_generator import generate_sequence
 
-from .lib.high_score_manager import load_high_score, save_high_score
 
 class Simon(app.App):
     """Simon."""
@@ -31,6 +32,8 @@ class Simon(app.App):
     def new_game(self):
         """Clean up ready."""
         self.score = 0
+        self.round_count = 0
+        self.sequence_length = 2
         self.high_score = load_high_score()
         self.scoreboard = Scoreboard()
         self.reset()
@@ -38,8 +41,11 @@ class Simon(app.App):
     def reset(self):
         """Restart."""
         self.last_change = ticks_ms()
-        self.sequence = [0]
-        # self.sequence = [0, 3, 1, 2, 3]
+
+        if self.round_count % conf["increase-length-after"] == 0:
+            self.sequence_length += 1
+
+        self.sequence = generate_sequence(self.sequence_length)
         self.guessed_sequence = []
         self.sequence_index = 0
         self.dialog = None
@@ -66,6 +72,7 @@ class Simon(app.App):
             panel.light_leds()
 
         if len(self.guessed_sequence) == len(self.sequence):
+            self.round_count += 1
             if self.guessed_sequence == self.sequence:
                 self.score += len(self.sequence)
                 self.high_score = max(self.score, self.high_score)

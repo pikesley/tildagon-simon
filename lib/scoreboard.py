@@ -1,5 +1,3 @@
-
-
 class Scoreboard:
     """Write the scores."""
 
@@ -14,7 +12,6 @@ class Scoreboard:
         ctx.text_baseline = ctx.MIDDLE
         ctx.font_size = 60
         ctx.text(str(self.scores["score"]))
-
 
         ctx.move_to(-75, -55)
         ctx.text_baseline = ctx.BOTTOM
