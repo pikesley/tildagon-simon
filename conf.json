@@ -9,8 +9,8 @@
     "arc": 57,
     "depth": 50,
     "intervals": {
-      "activatable": 500,
-      "activation": 300
+      "activatable": 300,
+      "activation": 200
     },
     "opacities": {
       "active": 1.0,
@@ -66,5 +66,8 @@
       ]
     }
   ],
-  "pause-time": 500
+  "pause-time": 300,
+  "scoreboard": {
+    "font-size": 60
+  }
 }

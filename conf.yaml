@@ -3,14 +3,17 @@ panel:
   arc: 57
   depth: 50
   intervals:
-    activation: 300
-    activatable: 500
+    activation: 200
+    activatable: 300
   opacities:
     plain: 0.4
     active: 1.0
     border: 0.7
 
-pause-time: 500  # general pause
+pause-time: 300  # general pause
+
+scoreboard:
+  font-size: 60
 
 leds:
   brightness:

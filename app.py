@@ -11,6 +11,7 @@ import app
 from .lib.background import Background
 from .lib.conf import conf
 from .lib.panel import Panel
+from .lib.scoreboard import Scoreboard
 
 
 class Simon(app.App):
@@ -23,6 +24,13 @@ class Simon(app.App):
         self.panels = [Panel(item) for item in conf["panels"]]
         self.reset_timer = 0
         self.score = 0
+        self.scoreboard = Scoreboard()
+        self.new_game()
+
+    def new_game(self):
+        """Clean up ready."""
+        self.score = 0
+        self.scoreboard = Scoreboard()
         self.reset()
 
     def reset(self):
@@ -38,7 +46,7 @@ class Simon(app.App):
 
     def exit(self):
         """Quit."""
-        self.reset()
+        self.new_game()
         self.button_states.clear()
         self.minimise()
 
@@ -58,13 +66,14 @@ class Simon(app.App):
         if len(self.guessed_sequence) == len(self.sequence):
             if self.guessed_sequence == self.sequence:
                 self.score += len(self.sequence)
+                self.score += len(self.sequence)
                 print(self.score)
                 self.reset()
             else:
                 self.restart_timer = ticks_ms()
                 self.dialog = YesNoDialog(
                     message="Play Again?",
-                    on_yes=self.reset,
+                    on_yes=self.new_game,
                     on_no=self.exit,
                     app=self,
                 )
@@ -110,6 +119,10 @@ class Simon(app.App):
 
         for panel in self.panels:
             self.overlays.append(panel)
+
+        if self.scoreboard.scores["score"] < self.score:
+            self.scoreboard.scores["score"] += 1
+        self.overlays.append(self.scoreboard)
 
         self.draw_overlays(ctx)
 
