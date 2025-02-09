@@ -1,5 +1,6 @@
 from math import radians
 from time import ticks_ms
+
 from tildagonos import tildagonos
 
 from ..pikesley.rgb_from_hue.rgb_from_hue import rgb_from_hue
@@ -17,9 +18,12 @@ class Panel:
         self.leds = data["leds"]
         self.button = data["button"]
         self.colours = {
-            "plain": list(rgb_from_hue(self.hue)) + [conf["panel"]["opacities"]["plain"]],
-            "border": list(rgb_from_hue(self.hue)) + [conf["panel"]["opacities"]["border"]],
-            "active": list(rgb_from_hue(self.hue)) + [conf["panel"]["opacities"]["active"]],
+            "plain": list(rgb_from_hue(self.hue))
+            + [conf["panel"]["opacities"]["plain"]],
+            "border": list(rgb_from_hue(self.hue))
+            + [conf["panel"]["opacities"]["border"]],
+            "active": list(rgb_from_hue(self.hue))
+            + [conf["panel"]["opacities"]["active"]],
         }
         self.colour = self.colours["plain"]
         self.semi_arc = conf["panel"]["arc"] / 2
@@ -84,8 +88,14 @@ class Panel:
 
     def deactivate(self):
         """Should we turn off."""
-        if ticks_ms() - self.activation_timer > conf["panel"]["intervals"]["activation"]:
+        if (
+            ticks_ms() - self.activation_timer
+            > conf["panel"]["intervals"]["activation"]
+        ):
             self.active = False
 
-        if ticks_ms() - self.activation_timer > conf["panel"]["intervals"]["activatable"]:
+        if (
+            ticks_ms() - self.activation_timer
+            > conf["panel"]["intervals"]["activatable"]
+        ):
             self.activatable = True

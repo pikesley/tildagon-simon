@@ -10,6 +10,8 @@ panel:
     active: 1.0
     border: 0.7
 
+pause-time: 500  # general pause
+
 leds:
   brightness:
     default: 0.4
