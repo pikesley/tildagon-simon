@@ -28,10 +28,10 @@ author = ""
 license = "MIT"
 
 # URL to the repository of your app.
-url = "https://www.github.com/"
+url = "https://www.github.com/pikesley/tildagon-simon"
 
 # Description of your app.  Maximum 140 characters!
-description = "Simon"
+description = "A reimplementation of an ancient game. Any button (except `CANCEL`) to start"
 
 # Version number of your app.  If you push a commit where this number is
 # increased, we interpret this as a new version being released.

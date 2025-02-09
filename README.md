@@ -1,3 +1,3 @@
 # Simon
 
-* run `python scripts/replace_simon.py`
+And button (except `CANCEL`) to start
