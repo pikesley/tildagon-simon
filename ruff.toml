@@ -11,7 +11,8 @@ lint.ignore = [
   "S311", # I DO NOT CARE ABOUT PSEUDO-RANDOM NUMBERS
   "PLR2004", # I WILL USE WHATEVER GODDAMN MAGIC COMPARISON VALUES I WANT IN MY TESTS FUCK OFF RUFF
   "RUF005", # no good for micropython
-  "TID252" # it's all relative imports down here
+  "TID252", # it's all relative imports down here
+  "D401" # the first line of my docstring will be in any mood I like
 ]
 lint.select = [
   "A", # flake8-builtins

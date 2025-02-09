@@ -1,17 +1,28 @@
 {
   "leds": {
     "brightness": {
+      "active": 0.6,
       "default": 0.4
     }
   },
   "panel": {
-    "arc": 58,
+    "arc": 57,
     "depth": 50,
+    "intervals": {
+      "activatable": 500,
+      "activation": 300
+    },
+    "opacities": {
+      "active": 1.0,
+      "border": 0.7,
+      "plain": 0.4
+    },
     "radius": 118
   },
   "panels": [
     {
       "angle": 270,
+      "button": "UP",
       "hue": 1.0,
       "leds": [
         12,
@@ -20,6 +31,7 @@
     },
     {
       "angle": 330,
+      "button": "RIGHT",
       "hue": 0.1,
       "leds": [
         2,
@@ -28,6 +40,7 @@
     },
     {
       "angle": 30,
+      "button": "CONFIRM",
       "hue": 0.3,
       "leds": [
         4,
@@ -36,6 +49,7 @@
     },
     {
       "angle": 90,
+      "button": "DOWN",
       "hue": 0.66,
       "leds": [
         6,
@@ -44,6 +58,7 @@
     },
     {
       "angle": 150,
+      "button": "LEFT",
       "hue": 0.8,
       "leds": [
         8,
