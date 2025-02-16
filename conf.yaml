@@ -1,45 +1,59 @@
+game:
+  starting-sequence-length: 3
+
 panel:
   radius: 118
   arc: 57
   depth: 50
+  shim: 1.0
   intervals:
-    activation: 200
-    activatable: 300
+    activation: 300
+    activatable: 400
   opacities:
-    plain: 0.4
+    plain: 0.5
     active: 1.0
-    border: 0.7
+    border: 0.8
 
-pause-time: 300  # general pause
+pause-time: 600 # general pause
 
 increase-length-after: 4
 
+shake-threshold: 100
+
 scoreboard:
-  font-size: 60
+  font-size: 70
+  radius: 62
+  colours:
+    text: [255, 255, 255]
+    background: [0, 0, 0]
 
 leds:
   brightness:
     default: 0.4
-    active : 0.6
+    active: 0.6
 
 panels:
-  - hue: 1.0  # red
+  - hue: 1.0 # red
     angle: 270
     leds: [12, 1]
     button: UP
-  - hue: 0.1  # orange
+  - hue: 0.1666
     angle: 330
     leds: [2, 3]
     button: RIGHT
-  - hue: 0.3  # green
+  - hue: 0.3333 # green
     angle: 30
     leds: [4, 5]
     button: CONFIRM
-  - hue: 0.66  # blue
+  - hue: 0.5
     angle: 90
     leds: [6, 7]
     button: DOWN
-  - hue: 0.8  # mauve
+  - hue: 0.6666 # blue
     angle: 150
     leds: [8, 9]
     button: LEFT
+  - hue: 0.8333
+    angle: 210
+    leds: [10, 11]
+    button: CANCEL

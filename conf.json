@@ -1,4 +1,7 @@
 {
+  "game": {
+    "starting-sequence-length": 3
+  },
   "increase-length-after": 4,
   "leds": {
     "brightness": {
@@ -10,15 +13,16 @@
     "arc": 57,
     "depth": 50,
     "intervals": {
-      "activatable": 300,
-      "activation": 200
+      "activatable": 400,
+      "activation": 300
     },
     "opacities": {
       "active": 1.0,
-      "border": 0.7,
-      "plain": 0.4
+      "border": 0.8,
+      "plain": 0.5
     },
-    "radius": 118
+    "radius": 118,
+    "shim": 1.0
   },
   "panels": [
     {
@@ -33,7 +37,7 @@
     {
       "angle": 330,
       "button": "RIGHT",
-      "hue": 0.1,
+      "hue": 0.1666,
       "leds": [
         2,
         3
@@ -42,7 +46,7 @@
     {
       "angle": 30,
       "button": "CONFIRM",
-      "hue": 0.3,
+      "hue": 0.3333,
       "leds": [
         4,
         5
@@ -51,7 +55,7 @@
     {
       "angle": 90,
       "button": "DOWN",
-      "hue": 0.66,
+      "hue": 0.5,
       "leds": [
         6,
         7
@@ -60,15 +64,38 @@
     {
       "angle": 150,
       "button": "LEFT",
-      "hue": 0.8,
+      "hue": 0.6666,
       "leds": [
         8,
         9
       ]
+    },
+    {
+      "angle": 210,
+      "button": "CANCEL",
+      "hue": 0.8333,
+      "leds": [
+        10,
+        11
+      ]
     }
   ],
-  "pause-time": 300,
+  "pause-time": 600,
   "scoreboard": {
-    "font-size": 60
-  }
+    "colours": {
+      "background": [
+        0,
+        0,
+        0
+      ],
+      "text": [
+        255,
+        255,
+        255
+      ]
+    },
+    "font-size": 70,
+    "radius": 62
+  },
+  "shake-threshold": 100
 }

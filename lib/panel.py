@@ -1,6 +1,7 @@
 from math import radians
 from time import ticks_ms
 
+from events.input import BUTTON_TYPES
 from tildagonos import tildagonos
 
 from ..pikesley.rgb_from_hue.rgb_from_hue import rgb_from_hue
@@ -11,12 +12,15 @@ from .gamma import gamma_corrections
 class Panel:
     """Panel."""
 
+    count = 0
+
     def __init__(self, data):
         """Construct."""
+        self.index = self.count
         self.angle = data["angle"]
         self.hue = data["hue"]
         self.leds = data["leds"]
-        self.button = data["button"]
+        self.button = BUTTON_TYPES[data["button"]]
         self.colours = {
             "plain": list(rgb_from_hue(self.hue))
             + [conf["panel"]["opacities"]["plain"]],
@@ -29,8 +33,10 @@ class Panel:
         self.semi_arc = conf["panel"]["arc"] / 2
 
         self.active = False
-        self.activatable = True
+        self.ready = True
         self.activation_timer = 0
+
+        Panel.count += 1
 
     def draw(self, ctx):
         """Draw ourself."""
@@ -61,8 +67,8 @@ class Panel:
             0,
             0,
             conf["panel"]["radius"] - conf["panel"]["depth"],
-            radians(-(self.semi_arc - 0.5)),
-            radians(self.semi_arc - 0.5),
+            radians(-(self.semi_arc - conf["panel"]["shim"])),
+            radians(self.semi_arc - conf["panel"]["shim"]),
             False,  # noqa: FBT003
         )
         ctx.close_path()
@@ -81,10 +87,10 @@ class Panel:
 
     def activate(self):
         """Briefly activate ourself."""
-        if not self.active and self.activatable:
+        if not self.active and self.ready:
             self.active = True
             self.activation_timer = ticks_ms()
-            self.activatable = False
+            self.ready = False
 
     def deactivate(self):
         """Should we turn off."""
@@ -98,4 +104,4 @@ class Panel:
             ticks_ms() - self.activation_timer
             > conf["panel"]["intervals"]["activatable"]
         ):
-            self.activatable = True
+            self.ready = True
