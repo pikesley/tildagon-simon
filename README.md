@@ -1,3 +1,3 @@
 # Simon
 
-And button (except `CANCEL`) to start
+Memory game. Shake the badge to start or go the next round
