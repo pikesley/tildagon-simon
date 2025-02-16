@@ -22,7 +22,7 @@ class = "Simon"
 
 [metadata]
 # Your nickname.  Must be at most 32 characters!
-author = ""
+author = "pikesley"
 
 # License of your app as an SPDX identifier: <https://spdx.org/licenses/>
 license = "MIT"
@@ -37,4 +37,4 @@ description = "A reimplementation of an ancient game. Shake the badge to start o
 # increased, we interpret this as a new version being released.
 #
 # Version number must be an integer!
-version = "0.0.2"
+version = "0.0.3"
